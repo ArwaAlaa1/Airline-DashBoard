@@ -1,0 +1,68 @@
+﻿@model AirLine.ViewModel.AirCraftModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create AirCraft</h1>
+
+
+<hr />
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">Create Road</h5>
+
+        <!-- No Labels Form -->
+        <form class="row g-3" asp-action="Create" asp-controller="AirCraft">
+            <div class="col-md-6">
+                <label>ID</label>
+                <input asp-for="Id" class="form-control" placeholder="ID">
+            </div>
+            <div class="col-md-6">
+                <label>Model</label>
+                <input asp-for="Model" class="form-control" placeholder="Model">
+            </div>
+            <div class="col-md-6">
+                <label>Capacity</label>
+                <input asp-for="Capacity" class="form-control" placeholder="Capacity">
+            </div>
+            <div class="col-md-6">
+                <label>Major_Poilot</label>
+                <input asp-for="Major_Poilot" class="form-control" placeholder="Major_Poilot">
+            </div>
+     
+            <div class="col-md-6">
+                <label>Assistant_Pilot</label>
+                <input asp-for="Assistant_Pilot" class="form-control" placeholder="Assistant_Pilot">
+            </div>
+            <div class="col-md-6">
+                <label>Host1</label>
+                <input asp-for="Host1" class="form-control" placeholder="Host1">
+            </div>
+            <div class="col-md-6">
+                <label>Host2</label>
+                <input asp-for="Host2" class="form-control" placeholder="Host2">
+            </div>
+
+
+            <div class="col-md-4">
+                <label>AirLine Name</label>
+                <select asp-for="AirlineId"  class="form-control" asp-items="@(new SelectList(Model.AirLines,"Id" ,"Name" ))"></select>
+                   
+            </div>
+
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </form><!-- End No Labels Form -->
+
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index" class="btn btn-primary">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

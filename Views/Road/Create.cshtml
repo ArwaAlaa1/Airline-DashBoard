@@ -1,0 +1,55 @@
+﻿@model AirLine.ViewModel.RoadModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create Road</h1>
+
+
+<hr />
+
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">Create Road</h5>
+
+        <!-- No Labels Form -->
+        <form class="row g-3" asp-action="Create" asp-controller="Road">
+            <div class="col-md-6">
+                <label>ID</label>
+                <input asp-for="Id" class="form-control" placeholder="ID">
+            </div>
+            <div class="col-md-6">
+                <label>Origin</label>
+                <input asp-for="Origin" class="form-control" placeholder="Origin">
+            </div>
+            <div class="col-md-6">
+                <label>Distination</label>
+                <input asp-for="Distination" class="form-control" placeholder="Distination">
+            </div>
+            <div class="col-md-6">
+                <label>Distance</label>
+                <input asp-for="Distance" class="form-control" placeholder="Distance">
+            </div>
+
+            
+            <div class="col-md-4">
+                <label>Classification</label>
+                <select asp-for="Classification" id="inputState" class="form-select" placeholder="Classification">
+                    <option  >domestic</option>
+                    <option>international route</option>
+                </select>
+            </div>
+           
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary">Submit</button>
+               </div>
+        </form><!-- End No Labels Form -->
+
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

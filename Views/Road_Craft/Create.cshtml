@@ -1,0 +1,71 @@
+﻿@model AirLine.ViewModel.Road_CraftModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create Road_Craft</h1>
+
+<hr />
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">Create Road_Craft</h5>
+
+        <!-- No Labels Form -->
+        <form class="row g-3" asp-action="Create" asp-controller="Road_Craft">
+            <div class="col-md-6">
+                <label>AirCraft Name</label>
+                <select asp-for="AirCraftId" class="form-control" asp-items="@(new SelectList(Model.AirCRS,  "Id" ,"Model" ))"></select>
+
+            </div>
+            <div class="col-md-6">
+                <label>Road Name</label>
+                <select asp-for="RouteId" class="form-control" asp-items="@(new SelectList(Model.RDs,"Id" ,"Distination" ))"></select>
+
+            </div>
+           
+            <div class="col-md-6">
+                <label>DepatureTime</label>
+                <input asp-for="DepatureTime" class="form-control" placeholder="DepatureTime">
+            </div>
+            <div class="col-md-6">
+                <label>ArrivalTime</label>
+                <input asp-for="ArrivalTime" class="form-control" placeholder="ArrivalTime">
+            </div>
+            <div class="col-md-6">
+                <label >NumPassenger</label>
+                <input asp-for="NumPassenger" class="form-control" placeholder="NumPassenger">
+            </div>
+            <div class="col-md-6">
+                <label >Price</label>
+                <input asp-for="Price" class="form-control" placeholder="Price">
+            </div>
+
+           
+           
+            @* <div class="col-md-4">
+            <select asp-for="Classification" id="inputState" class="form-select" placeholder="Classification">
+            <option>domestic</option>
+            <option>international route</option>
+            </select>
+            </div>*@
+
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </form><!-- End No Labels Form -->
+
+    </div>
+</div>
+
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+

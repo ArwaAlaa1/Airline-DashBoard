@@ -1,0 +1,63 @@
+﻿@model AirLine.ViewModel.EmployeeModel
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Create";
+}
+<h1>Create</h1>
+<!-- Vertical Form -->
+<form class="row g-3" asp-action="Create">
+    <div class="col-12">
+        <label for="inputNanme4" class="form-label">Id</label>
+        <input asp-for="Id" class="form-control">
+    </div>
+    <div class="col-12">
+        <label for="inputEmail4" class="form-label">Name Of Employee</label>
+        <input asp-for="Name" class="form-control">
+    </div>
+    <div class="col-12">
+        <label for="inputPassword4" class="form-label"> Address</label>
+        <input asp-for="Address" class="form-control">
+    </div>
+    <div class="col-12">
+        <label for="inputAddress" class="form-label">BirthDay</label>
+        <input asp-for="BDDay" class="form-control">
+
+    </div>
+    <div class="col-12">
+        <label for="inputAddress" class="form-label">BirthMonth</label>
+        <input asp-for="BDMonth" class="form-control">
+    </div>
+    <div class="col-12">
+        <label for="inputAddress" class="form-label">BirthYear</label>
+        <input asp-for="BDYear" class="form-control">
+    </div>
+    <div class="col-12">
+        <label for="inputAddress" class="form-label">Gender</label>
+        <input asp-for="Gender" class="form-control">
+    </div>
+    <div class="col-12">
+        <label for="inputAddress" class="form-label">Position</label>
+        <input asp-for="Position" class="form-control">
+    </div>
+    <div class="col-12">
+        <label for="inputAddress" class="form-label">AirLineName</label>
+        <select asp-for="AirLineId" class="form-label" asp-items="@(new SelectList(Model.AirLines_list,"Id" ,"Name"))" style="width :70px ; border : 2px dashed black"></select>
+    </div>
+
+    <div class="text-center">
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+</form><!-- Vertical Form -->
+<!-- Vendor JS Files -->
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

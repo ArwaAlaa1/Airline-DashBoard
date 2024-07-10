@@ -1,0 +1,37 @@
+﻿@model AirLine.ViewModel.PhonesModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>New PhoneNumber</h4>
+
+<form class="row g-3" asp-action="Create">
+    <div class="col-12">
+        <label for="inputNanme4" class="form-label">Name Of AirLines</label>
+        <br />
+        <select asp-for="AirLineId" class="form-label" style="width :70px ; border : 2px dashed black" asp-items="@(new SelectList(Model.AirLines_List,"Id" ,"Name"))"></select>
+
+
+    </div>
+    <div class="col-12">
+        <label for="inputEmail4" class="form-label">Phone</label>
+        <input asp-for="Phones" class="form-control">
+    </div>
+
+    <div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+    <div>
+        <button asp-action="Index" class="btn btn-primary">Back</button>
+    </div>
+
+</form><!-- Vertical Form -->
+<!-- Vendor JS Files -->
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

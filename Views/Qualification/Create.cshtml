@@ -1,0 +1,35 @@
+﻿@model AirLine.ViewModel.QualificationsModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Add Qualification</h1>
+
+
+<form class="row g-3" asp-action="Create">
+    <div class="col-12">
+        <label for="inputNanme4" class="form-label">Name Of Employees</label>
+        <br />
+        <select asp-for="EmployeeId" class="form-label" style="width :100px ; border : 2px dashed black" asp-items="@(new SelectList(Model.Employees,"Id" ,"Name"))"></select>
+
+
+    </div>
+    <div class="col-12">
+        <label for="inputEmail4" class="form-label">QualifiCation</label>
+        <input asp-for="Qualification" class="form-control">
+    </div>
+
+    <div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+    <div>
+        <button asp-action="Index" class="btn btn-primary">Back</button>
+    </div>
+</form><!-- Vertical Form -->
+<!-- Vendor JS Files -->
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
