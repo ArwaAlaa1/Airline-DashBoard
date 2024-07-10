@@ -12,7 +12,7 @@ namespace AirLine
             // Add services to the container.
             builder.Services.AddControllersWithViews();
             builder.Services.AddDbContext<DBContext>
-             (option => option.UseSqlServer("server = ARWA-ALAA\\\\ARWAALAA; Database =AirLine Company;integrated security =true"));
+             (option => option.UseSqlServer("server =  ARWA-ALAA\\\\ARWAALAA; Database =AirLine Company;integrated security =true"));
            var app = builder.Build();
 
             // Configure the HTTP request pipeline.
